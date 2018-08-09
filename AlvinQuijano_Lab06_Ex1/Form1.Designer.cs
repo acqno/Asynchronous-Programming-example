@@ -213,7 +213,7 @@
             this.lowHighListBox.ItemHeight = 25;
             this.lowHighListBox.Location = new System.Drawing.Point(186, 447);
             this.lowHighListBox.Name = "lowHighListBox";
-            this.lowHighListBox.Size = new System.Drawing.Size(474, 154);
+            this.lowHighListBox.Size = new System.Drawing.Size(470, 154);
             this.lowHighListBox.TabIndex = 14;
             // 
             // label6

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /*
  * 
  * Name: Alvin Quijano 
- * Ver: 1.1 - Refactored wpf form layout 
+ * Ver: 1.2 - Refactored ansynchronous facotrial method 
  * Description: Code behind file for window form application
  * 
  */
@@ -40,15 +40,16 @@ namespace AlvinQuijano_Lab06_Ex1
             try
             {
                 // Retrieve input number from user 
-                int num = int.Parse(factTextBox.Text);
-
-                resultLabel.Text = "Calculating...";
+                ulong num = ulong.Parse(factTextBox.Text);             
 
                 // Task to perform factorial calculation
-                Task<long> factorialTask = Task.Run(() => Factorial(num));
+                Task<ulong> factorialTask = Task.Run(() => Factorial(num));
+                
+                resultLabel.Text = "Calculating...";
 
+                await Task.Delay(1999);
                 await factorialTask;
-
+                
                 resultLabel.Text = factorialTask.Result.ToString();
             } catch(Exception ex)
             {
@@ -58,11 +59,12 @@ namespace AlvinQuijano_Lab06_Ex1
         }
 
         // Recursive factorial method 
-        public long Factorial(long i)
+        public ulong Factorial(ulong num)
         {
-            if (i <= 1)
+            if (num == 1)
                 return 1;
-            return i * Factorial(i - 1);
+            else
+                return num * Factorial(num - 1);
         }
 
         // Task #2 - Check for Even/Odd

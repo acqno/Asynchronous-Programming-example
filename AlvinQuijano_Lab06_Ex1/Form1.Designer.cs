@@ -56,6 +56,7 @@
             this.intRButton = new System.Windows.Forms.RadioButton();
             this.charRButton = new System.Windows.Forms.RadioButton();
             this.doubleRButton = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -174,6 +175,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.foundValLabel);
             this.groupBox3.Controls.Add(this.lowHighListBox);
             this.groupBox3.Controls.Add(this.label6);
@@ -190,7 +192,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(451, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(761, 623);
+            this.groupBox3.Size = new System.Drawing.Size(662, 623);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "(3) Display List of Values and Search";
@@ -256,7 +258,7 @@
             // lowTextBox
             // 
             this.lowTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lowTextBox.Location = new System.Drawing.Point(347, 277);
+            this.lowTextBox.Location = new System.Drawing.Point(347, 300);
             this.lowTextBox.Name = "lowTextBox";
             this.lowTextBox.Size = new System.Drawing.Size(100, 31);
             this.lowTextBox.TabIndex = 9;
@@ -283,7 +285,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(210, 280);
+            this.label4.Location = new System.Drawing.Point(210, 303);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 25);
             this.label4.TabIndex = 6;
@@ -367,6 +369,16 @@
             this.doubleRButton.Text = "Doubles";
             this.doubleRButton.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(204, 217);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 25);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Found value:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -419,6 +431,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.Label foundValLabel;
+        private System.Windows.Forms.Label label7;
     }
 }
 

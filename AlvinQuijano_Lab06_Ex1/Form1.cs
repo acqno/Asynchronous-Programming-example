@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /*
  * 
  * Name: Alvin Quijano 
- * Ver: 1.0 - Created wpf form 
+ * Ver: 1.1 - Refactored wpf form layout 
  * Description: Code behind file for window form application
  * 
  */
@@ -99,11 +99,7 @@ namespace AlvinQuijano_Lab06_Ex1
         // Task #3 - Display list of Values, search values
         private void generateButton_Click(object sender, EventArgs e)
         {
-            // arrays
-            //int[] intList = new int[10];
-            //double[] doubleList = new double[10];
-            //char[] charList = {'A', 'B', 'C', 'X', 'Y', 'Z', '!', '@', '?', '/'};
-
+           
             Random rand = new Random();
 
             if (intRButton.Checked)

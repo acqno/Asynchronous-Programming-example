@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /*
  * 
  * Name: Alvin Quijano 
- * Ver: 1.2 - Refactored ansynchronous facotrial method 
+ * Ver: 1.3 - Added random char array generator 
  * Description: Code behind file for window form application
  * 
  */
@@ -27,7 +27,8 @@ namespace AlvinQuijano_Lab06_Ex1
         // arrays
         int[] intList = new int[10];
         double[] doubleList = new double[10];
-        char[] charList = { 'A', 'B', 'C', 'X', 'Y', 'Z', '!', '@', '?', '/' };
+        //char[] charList = { 'A', 'B', 'C', 'X', 'Y', 'Z', '!', '@', '?', '/' };
+        char[] charList = new char[10];
 
         public Form1()
         {
@@ -85,7 +86,7 @@ namespace AlvinQuijano_Lab06_Ex1
             } catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                boolLabel.Text = "Enter a valid number";
+                boolLabel.Text = "Enter a valid integer";
             }
         }
 
@@ -101,9 +102,9 @@ namespace AlvinQuijano_Lab06_Ex1
         // Task #3 - Display list of Values, search values
         private void generateButton_Click(object sender, EventArgs e)
         {
-           
+            
             Random rand = new Random();
-
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%*&";
             if (intRButton.Checked)
             {
                 for (int i = 0; i < intList.Length; i++)
@@ -124,6 +125,11 @@ namespace AlvinQuijano_Lab06_Ex1
             }
             else
             {
+                for (int i = 0; i < charList.Length; i++)
+                {
+                    charList[i] = characters[rand.Next(characters.Length)];
+                }
+
                 valListBox.DataSource = charList;
             }
         }
@@ -131,7 +137,7 @@ namespace AlvinQuijano_Lab06_Ex1
         // Task #3a - Search generated list of values for a value
         private void searchButton_Click(object sender, EventArgs e)
         {
-
+            
             if (intRButton.Checked)
             {
                 int search = int.Parse(searchValTextBox.Text);
@@ -191,6 +197,13 @@ namespace AlvinQuijano_Lab06_Ex1
 
                     double[] inputDblArray = valListBox.Items.OfType<double>().ToArray();
                     NewList(inputDblArray, low, high);
+                }
+                else if (charRButton.Checked)
+                {
+                    char first = Convert.ToChar(lowTextBox.Text);
+                    char last = Convert.ToChar(highTextBox.Text);
+
+                    NewList(charList, first, last);
                 }
 
             } catch (Exception ex)

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /*
  * 
  * Name: Alvin Quijano 
- * Ver: 1.3 - Added random char array generator 
+ * Ver: 1.4 - Added exception handling on search value button handler
  * Description: Code behind file for window form application
  * 
  */
@@ -48,7 +48,7 @@ namespace AlvinQuijano_Lab06_Ex1
                 
                 resultLabel.Text = "Calculating...";
 
-                await Task.Delay(1999);
+                await Task.Delay(3999);
                 await factorialTask;
                 
                 resultLabel.Text = factorialTask.Result.ToString();
@@ -137,25 +137,32 @@ namespace AlvinQuijano_Lab06_Ex1
         // Task #3a - Search generated list of values for a value
         private void searchButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(searchValTextBox.Text))
+            {
+                foundValLabel.Text = "Enter a value";
+            }
+            else
+            {
+                if (intRButton.Checked)
+                {
+                    int search = int.Parse(searchValTextBox.Text);
+
+                    foundValLabel.Text = ($"{SearchValue(search)}");
+                }
+                else if (doubleRButton.Checked)
+                {
+                    double search = double.Parse(searchValTextBox.Text);
+
+                    foundValLabel.Text = ($"{SearchValue(search)}");
+                }
+                else if (charRButton.Checked)
+                {
+                    char search = Convert.ToChar(searchValTextBox.Text);
+
+                    foundValLabel.Text = ($"{SearchValue(search)}");
+                }
+            }
             
-            if (intRButton.Checked)
-            {
-                int search = int.Parse(searchValTextBox.Text);
-
-                foundValLabel.Text = ($"{SearchValue(search)}");
-            }
-            else if (doubleRButton.Checked)
-            {
-                double search = double.Parse(searchValTextBox.Text);
-
-                foundValLabel.Text = ($"{SearchValue(search)}");
-            }
-            else if (charRButton.Checked)
-            {
-                char search = Convert.ToChar(searchValTextBox.Text);
-
-                foundValLabel.Text = ($"{SearchValue(search)}");
-            }
             
         }
 
@@ -203,6 +210,7 @@ namespace AlvinQuijano_Lab06_Ex1
                     char first = Convert.ToChar(lowTextBox.Text);
                     char last = Convert.ToChar(highTextBox.Text);
 
+                    char[] inputCharArray = valListBox.Items.OfType<char>().ToArray();
                     NewList(charList, first, last);
                 }
 

@@ -39,6 +39,7 @@
             this.boolLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.foundValLabel = new System.Windows.Forms.Label();
             this.lowHighListBox = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@
             this.intRButton = new System.Windows.Forms.RadioButton();
             this.charRButton = new System.Windows.Forms.RadioButton();
             this.doubleRButton = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -175,6 +176,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.errorLabel);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.foundValLabel);
             this.groupBox3.Controls.Add(this.lowHighListBox);
@@ -196,6 +198,16 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "(3) Display List of Values and Search";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(204, 217);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 25);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Found value:";
             // 
             // foundValLabel
             // 
@@ -228,7 +240,7 @@
             // displayButton
             // 
             this.displayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayButton.Location = new System.Drawing.Point(502, 311);
+            this.displayButton.Location = new System.Drawing.Point(493, 351);
             this.displayButton.Name = "displayButton";
             this.displayButton.Size = new System.Drawing.Size(124, 44);
             this.displayButton.TabIndex = 12;
@@ -369,15 +381,14 @@
             this.doubleRButton.Text = "Doubles";
             this.doubleRButton.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // errorLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(204, 217);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(137, 25);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Found value:";
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLabel.Location = new System.Drawing.Point(493, 305);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 25);
+            this.errorLabel.TabIndex = 17;
             // 
             // Form1
             // 
@@ -432,6 +443,7 @@
         private System.Windows.Forms.Button generateButton;
         private System.Windows.Forms.Label foundValLabel;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
 

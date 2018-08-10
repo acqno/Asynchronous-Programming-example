@@ -11,7 +11,7 @@ using System.Windows.Forms;
 /*
  * 
  * Name: Alvin Quijano 
- * Ver: 1.4 - Added exception handling on search value button handler
+ * Ver: 1.5 - Refactored low/high index search method 
  * Description: Code behind file for window form application
  * 
  */
@@ -185,56 +185,73 @@ namespace AlvinQuijano_Lab06_Ex1
         // Task #3b - Display list of values between high index and low index
         private void displayButton_Click(object sender, EventArgs e)
         {
-
-            try
+            if (string.IsNullOrEmpty(errorLabel.Text))
             {
-                if (intRButton.Checked)
-                {
-                    int low = int.Parse(lowTextBox.Text);
-                    int high = int.Parse(highTextBox.Text);
-
-                    int[] inputIntArray = valListBox.Items.OfType<int>().ToArray();
-
-                    NewList(inputIntArray, low, high);
-                }
-                else if (doubleRButton.Checked)
-                {
-                    double low = double.Parse(lowTextBox.Text);
-                    double high = double.Parse(highTextBox.Text);
-
-                    double[] inputDblArray = valListBox.Items.OfType<double>().ToArray();
-                    NewList(inputDblArray, low, high);
-                }
-                else if (charRButton.Checked)
-                {
-                    char first = Convert.ToChar(lowTextBox.Text);
-                    char last = Convert.ToChar(highTextBox.Text);
-
-                    char[] inputCharArray = valListBox.Items.OfType<char>().ToArray();
-                    NewList(charList, first, last);
-                }
-
-            } catch (Exception ex)
+                errorLabel.Text = "Enter index";
+            }
+            else
             {
-                Console.WriteLine(ex.Message);
-                
+                int low = int.Parse(lowTextBox.Text);
+                int high = int.Parse(highTextBox.Text);
+
+
+
+                try
+                {
+                    if (intRButton.Checked)
+                    {
+                        //int low = int.Parse(lowTextBox.Text);
+                        //int high = int.Parse(highTextBox.Text);
+
+                        int[] inputIntArray = valListBox.Items.OfType<int>().ToArray();
+
+                        NewList(inputIntArray, low, high);
+                    }
+                    else if (doubleRButton.Checked)
+                    {
+                        //double low = double.Parse(lowTextBox.Text);
+                        // double high = double.Parse(highTextBox.Text);
+
+                        double[] inputDblArray = valListBox.Items.OfType<double>().ToArray();
+                        NewList(inputDblArray, low, high);
+                    }
+                    else if (charRButton.Checked)
+                    {
+                        //char first = Convert.ToChar(lowTextBox.Text);
+                        //char last = Convert.ToChar(highTextBox.Text);
+
+                        char[] inputCharArray = valListBox.Items.OfType<char>().ToArray();
+                        NewList(charList, low, high);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+
+                }
             }
             
             
         }
 
         // Method that takes 3 arguments - array, lowindex and highindex and checks each element in array if it is inbetween low and high
-        public void NewList<T>(T[] genArray, T lowIndex, T highIndex) 
+        public void NewList<T>(T[] genArray, int lowIndex, int highIndex) 
             where T : IComparable
         {
             List<T> compareList = new List<T>();
 
-            foreach (var item in genArray)
+            /*foreach (var item in genArray)
             {
                 if((item.CompareTo(lowIndex)) == 1 && (item.CompareTo(highIndex)) == -1)
                 {
                     compareList.Add(item);
                 }
+            }*/
+
+            for (int i = lowIndex; i < highIndex; i++)
+            {
+                compareList.Add(genArray[i]);
             }
             lowHighListBox.DataSource = compareList;                
         }
